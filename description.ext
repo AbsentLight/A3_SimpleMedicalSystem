@@ -1,0 +1,78 @@
+#include "defines.hpp"
+#include "dialogs.hpp"
+
+respawn = "INSTANT";
+enableDebugConsole = 1;
+saving = 0;
+joinUnassigned = 1;
+disabledAI = 1;
+
+class CfgFunctions
+{
+	class SMS
+	{
+
+		class actions
+		{
+			file = "functions\medical\actions";
+			class attended {};
+			class diagnose {};
+		};
+
+		class states
+		{
+			file = "functions\medical\states";
+			class setLimping {};
+			class setIncapacitated {};
+			class isFresh {};
+			class isStable {};
+			class isBleeding {};
+			class partIsBleeding {};
+			class getBleedRate {};
+			class isUnconscious {};
+			class getTourniquetCount {};
+			class partHasTourniquet {};
+			class updatePlayerState {};
+		};
+
+		class effects
+		{
+			file = "functions\medical\effects";
+			class initEffects {};
+			class painEffect {};
+			class unconsciousEffect {};
+		};
+
+		class eventHandlers
+		{
+			file = "functions\medical\eventHandlers";
+			class handleDamageEH {};
+			class medicalMenuKeybindEH {};
+		};
+
+		class ui
+		{
+			file = "functions\medical\ui";
+			class actionBar {};
+			class openSetupMedicalMenu {};
+			class setTriageCategory {};
+			class bleedAmountToColor {};
+		};
+
+		class util
+		{
+			file = "functions\medical\util";
+			class removeVanillaMedical {};
+			class isMedic {};
+			class hideAllHud {};
+			class hasDiagnosed {};
+			class getTriageCategory {};
+			class canHaveAdv {};
+			class canHaveEpi {};
+			class canHaveMorph {};
+			class canHaveBasic {};
+			class wasDamageSourceDirect {};
+			class canReceiveMedicalAttention {};
+		};
+	};
+};
