@@ -57,6 +57,7 @@ class CfgFunctions
 			class openSetupMedicalMenu {};
 			class setTriageCategory {};
 			class bleedAmountToColor {};
+			class getPlayersMenuColor {};
 		};
 
 		class util

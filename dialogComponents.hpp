@@ -57,15 +57,16 @@ class RscBackgroundElement {
 	sizeEx = 0;
 	text = "";
 	x = 0;
-	y = 0;
+	y = 0.04;
 	w = 1;
-	h = 1;
+	h = 0.96;
 }
 
 class RscTitleBar : RscBackgroundElement {
 	style = ST_SINGLE;
 	colorBackground[] = {0.7558823529,0.5019607843,0.1254901961,0.95};
 	h = 0.04;
+	y = 0;
 	sizeEx = 0.04;
 }
 

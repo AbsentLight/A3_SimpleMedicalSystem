@@ -9,6 +9,9 @@ _display = uiNamespace getVariable "SMS_ActionBar";
 // Set dialog title
 (_display displayCtrl 701) ctrlSetText _text;
 
+// Set topper color to clients menu color
+(_display displayCtrl 801) ctrlSetBackgroundColor ([] call SMS_fnc_getPlayersMenuColor);
+
 _time = 0.0;
 _duration = 1 max _duration;
 _progressbar = (_display displayCtrl 702);

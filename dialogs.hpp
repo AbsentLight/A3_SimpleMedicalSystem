@@ -189,9 +189,9 @@ class ActionBar {
 		class background : RscBackgroundElement {
 			idc = -1; // never needs to be changed
 			x = 0.2;
-			y = 0.4;
+			y = 0.44;
 			w = 0.6;
-			h = 0.13;
+			h = 0.09;
 		};
 		class title : RscTitleBar {
 			idc = 701;

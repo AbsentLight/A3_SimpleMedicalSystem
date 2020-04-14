@@ -15,6 +15,9 @@ _name = _target getVariable "SMS_UNIT_NAME";
 // Set dialog title
 (_display displayCtrl 801) ctrlSetText (format ["Medical Treatment - %1", _name]);
 
+// Set topper color to clients menu color
+(_display displayCtrl 801) ctrlSetBackgroundColor ([] call SMS_fnc_getPlayersMenuColor);
+
 _bandagePartControl = {
 	params ["_target", "_idc", "_part", "_label", "_diagnosed"];
 	_display = uiNamespace getVariable "SMS_MedicalMenu";
