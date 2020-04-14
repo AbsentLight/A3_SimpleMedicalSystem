@@ -1,4 +1,4 @@
-params ["_text","_duration","_callback"];
+params ["_text","_duration","_callback","_callbackExtraParams"];
 
 closeDialog 1;
 
@@ -28,7 +28,7 @@ while {_time < _duration} do {
 
 // Only perform callback if not interrupted
 if (_displayOpen) then {
-	[(player getVariable "SMS_MED_TARGET"), player] call _callback;
+	[(player getVariable "SMS_MED_TARGET"), player, _callbackExtraParams] call _callback;
 };
 
 // Close action bar

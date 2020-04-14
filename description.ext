@@ -17,6 +17,8 @@ class CfgFunctions
 			file = "functions\medical\actions";
 			class attended {};
 			class diagnose {};
+			class applyBandage {};
+			class applyTourniquet {};
 		};
 
 		class states
@@ -73,6 +75,7 @@ class CfgFunctions
 			class canHaveMorph {};
 			class canHaveBasic {};
 			class wasDamageSourceDirect {};
+			class getTourniquetActionText {};
 			class canReceiveMedicalAttention {};
 		};
 	};

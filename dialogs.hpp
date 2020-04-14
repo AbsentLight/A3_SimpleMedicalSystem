@@ -13,6 +13,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.15;
 			text = "Head";
+			action = "[""Bandaging..."", missionNamespace getVariable ""SMS_CONFIG_BANDAGETIME"", SMS_fnc_applyBandage,[""HEAD""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Body (Wide)
@@ -21,6 +22,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.21;
 			text = "Body";
+			action = "[""Bandaging..."", missionNamespace getVariable ""SMS_CONFIG_BANDAGETIME"", SMS_fnc_applyBandage,[""BODY""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Treat Left Arm 
@@ -29,6 +31,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.27;
 			text = "Left Arm";
+			action = "[""Bandaging..."", missionNamespace getVariable ""SMS_CONFIG_BANDAGETIME"", SMS_fnc_applyBandage,[""LARM""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Tourniquet Left Arm
@@ -37,6 +40,7 @@ class MedicalMenu {
 			x = 0.25;
 			y = 0.27;
 			text = "N/A";
+			action = "[[""LARM""] call SMS_fnc_getTourniquetActionText, missionNamespace getVariable ""SMS_CONFIG_TOURNTIME"", SMS_fnc_applyTourniquet,[""LARM""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Treat Right Arm 
@@ -45,6 +49,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.33;
 			text = "Right Arm";
+			action = "[""Bandaging..."", missionNamespace getVariable ""SMS_CONFIG_BANDAGETIME"", SMS_fnc_applyBandage,[""RARM""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Tourniquet Right Arm
@@ -53,6 +58,7 @@ class MedicalMenu {
 			x = 0.25;
 			y = 0.33;
 			text = "N/A";
+			action = "[[""RARM""] call SMS_fnc_getTourniquetActionText, missionNamespace getVariable ""SMS_CONFIG_TOURNTIME"", SMS_fnc_applyTourniquet,[""RARM""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Treat Left Leg 
@@ -61,6 +67,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.39;
 			text = "Leg Leg";
+			action = "[""Bandaging..."", missionNamespace getVariable ""SMS_CONFIG_BANDAGETIME"", SMS_fnc_applyBandage,[""LLEG""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Tourniquet Left Leg
@@ -69,6 +76,7 @@ class MedicalMenu {
 			x = 0.25;
 			y = 0.39;
 			text = "N/A";
+			action = "[[""LLEG""] call SMS_fnc_getTourniquetActionText, missionNamespace getVariable ""SMS_CONFIG_TOURNTIME"", SMS_fnc_applyTourniquet,[""LLEG""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Treat Right Leg 
@@ -77,6 +85,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.45;
 			text = "Right Leg";
+			action = "[""Bandaging..."", missionNamespace getVariable ""SMS_CONFIG_BANDAGETIME"", SMS_fnc_applyBandage,[""RLEG""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Tourniquet Right Leg
@@ -85,6 +94,7 @@ class MedicalMenu {
 			x = 0.25;
 			y = 0.45;
 			text = "N/A";
+			action = "[[""RLEG""] call SMS_fnc_getTourniquetActionText, missionNamespace getVariable ""SMS_CONFIG_TOURNTIME"", SMS_fnc_applyTourniquet,[""RLEG""]] spawn SMS_fnc_actionBar";
 		};
 
 		// Inject Morphine
@@ -125,7 +135,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.63;
 			text = "Diagnose";
-			action = "[""Diagnosing..."", 1, SMS_fnc_diagnose] spawn SMS_fnc_actionBar"
+			action = "[""Diagnosing..."", 1, SMS_fnc_diagnose,[]] spawn SMS_fnc_actionBar";
 		};
 
 		// Triage category
