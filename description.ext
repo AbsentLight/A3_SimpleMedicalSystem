@@ -2,7 +2,7 @@
 #include "dialogs.hpp"
 
 respawn = "INSTANT";
-enableDebugConsole = 1;
+enableDebugConsole = 2;
 saving = 0;
 joinUnassigned = 1;
 disabledAI = 1;
@@ -19,6 +19,8 @@ class CfgFunctions
 			class diagnose {};
 			class applyBandage {};
 			class applyTourniquet {};
+			class injectMorphine {};
+			class injectEpinephrine {};
 		};
 
 		class states

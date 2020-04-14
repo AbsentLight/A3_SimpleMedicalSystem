@@ -103,6 +103,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.51;
 			text = "Inject Morphine";
+			action = "[""Injecting Morphine..."", missionNamespace getVariable ""SMS_CONFIG_INJECTTIME"", SMS_fnc_injectMorphine,[]] spawn SMS_fnc_actionBar";
 		};
 
 		// Inject Epinephrine
@@ -111,6 +112,7 @@ class MedicalMenu {
 			x = 0.25‬;
 			y = 0.51;
 			text = "Inject Epinephrine";
+			action = "[""Injecting Epinephrine..."", missionNamespace getVariable ""SMS_CONFIG_INJECTTIME"", SMS_fnc_injectEpinephrine,[]] spawn SMS_fnc_actionBar";
 		};
 
 		// Use Basic FAK
