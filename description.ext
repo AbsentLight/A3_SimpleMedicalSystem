@@ -2,7 +2,7 @@
 #include "dialogs.hpp"
 
 respawn = "INSTANT";
-enableDebugConsole = 1;
+enableDebugConsole = 2;
 saving = 0;
 joinUnassigned = 1;
 disabledAI = 1;
@@ -17,6 +17,12 @@ class CfgFunctions
 			file = "functions\medical\actions";
 			class attended {};
 			class diagnose {};
+			class applyBandage {};
+			class applyTourniquet {};
+			class injectMorphine {};
+			class injectEpinephrine {};
+			class useBasicAid {};
+			class useAdvancedAid {};
 		};
 
 		class states
@@ -48,6 +54,7 @@ class CfgFunctions
 			file = "functions\medical\eventHandlers";
 			class handleDamageEH {};
 			class medicalMenuKeybindEH {};
+			class medicalMenuCloseEH {};
 		};
 
 		class ui
@@ -73,6 +80,7 @@ class CfgFunctions
 			class canHaveMorph {};
 			class canHaveBasic {};
 			class wasDamageSourceDirect {};
+			class getTourniquetActionText {};
 			class canReceiveMedicalAttention {};
 		};
 	};

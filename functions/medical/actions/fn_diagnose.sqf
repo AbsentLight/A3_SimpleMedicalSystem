@@ -1,4 +1,4 @@
-params ["_target", "_actor"];
+params ["_target", "_actor","_unused"];
 
 player sideChat str _this;
 

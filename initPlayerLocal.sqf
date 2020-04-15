@@ -17,14 +17,23 @@ _unit addEventHandler ["InventoryOpened", {
 	};
 }];
 
-waitUntil {time > 0};
-_ehRef = _unit addEventHandler ["HandleDamage", SMS_fnc_handleDamageEH];
-_unit setVariable ["SMS_DAMAGE_EH", _ehRef, true];
+// Add unit damage EH after built-ins
+[_unit] spawn {
+	params ["_unit"];
+
+	waitUntil {time > 0};
+	_ehRef = _unit addEventHandler ["HandleDamage", SMS_fnc_handleDamageEH];
+	_unit setVariable ["SMS_DAMAGE_EH", _ehRef, true];
+};
+
+// UI event handlers
 [] spawn {
 	waituntil {!isnull (finddisplay 46)};
 	_medicalSystemMenuKeybind = findDisplay 46 displayAddEventHandler ["KeyDown", SMS_fnc_medicalMenuKeybindEH];
+	_medicalMenuCloseEH = (findDisplay 800) displayAddEventHandler ["onUnload", SMS_fnc_medicalMenuCloseEH];
 };
 
+// Unit update loop
 [_unit] spawn {
 	params ["_unit"];
 	while {alive _unit} do {
