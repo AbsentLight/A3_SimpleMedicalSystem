@@ -121,6 +121,7 @@ class MedicalMenu {
 			x = 0.025;
 			y = 0.57;
 			text = "Use Basic Aid Kit";
+			action = "[""Giving Basic Aid..."", missionNamespace getVariable ""SMS_CONFIG_BASICAIDTIME"", SMS_fnc_useBasicAid,[]] spawn SMS_fnc_actionBar";
 		};
 
 		// Use Advanced FAK
@@ -129,6 +130,7 @@ class MedicalMenu {
 			x = 0.25;
 			y = 0.57;
 			text = "Use Advanced Aid";
+			action = "[""Giving Advanced Aid..."", missionNamespace getVariable ""SMS_CONFIG_ADVAIDTIME"", SMS_fnc_useAdvancedAid,[]] spawn SMS_fnc_actionBar";
 		};
 
 		// Diagnose

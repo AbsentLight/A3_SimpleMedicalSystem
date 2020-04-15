@@ -20,15 +20,18 @@ _displayOpen = true;
 
 while {_time < _duration} do {
 	if (isNull findDisplay 700) exitWith {hint "display not found"; _displayOpen = false};
-	sleep 0.01;
+	if ([player] call SMS_fnc_isUnconscious) exitWith {_displayOpen = false};
+	uiSleep 0.015;
 	_fillAmount = _time / _duration;
 	_progressbar progressSetPosition _fillAmount;
-	_time = _time + 0.01;
+	_time = _time + 0.015;
 };
 
 // Only perform callback if not interrupted
 if (_displayOpen) then {
 	[(player getVariable "SMS_MED_TARGET"), player, _callbackExtraParams] call _callback;
+} else {
+	hint "Action cancelled";
 };
 
 // Close action bar

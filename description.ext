@@ -21,6 +21,8 @@ class CfgFunctions
 			class applyTourniquet {};
 			class injectMorphine {};
 			class injectEpinephrine {};
+			class useBasicAid {};
+			class useAdvancedAid {};
 		};
 
 		class states
@@ -52,6 +54,7 @@ class CfgFunctions
 			file = "functions\medical\eventHandlers";
 			class handleDamageEH {};
 			class medicalMenuKeybindEH {};
+			class medicalMenuCloseEH {};
 		};
 
 		class ui

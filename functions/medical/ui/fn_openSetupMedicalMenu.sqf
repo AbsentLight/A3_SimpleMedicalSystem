@@ -124,16 +124,3 @@ if (_target == player || _isDiagnosed) then {
 if (_isDiagnosed) then {
 	[_target, 817] call SMS_fnc_setTriageCategory;
 };
-
-/*
-	Dialog Close Handler
-*/
-
-[] spawn {
-	_displayOpen = true;
-	while {_displayOpen} do {
-		sleep 0.01;
-		if (isNull findDisplay 800 && {isNull findDisplay 700}) exitWith {_displayOpen = false};
-	};
-	player setVariable ["SMS_MED_TARGET", objNull, true];
-};
