@@ -31,12 +31,3 @@ _unit addEventHandler ["InventoryOpened", {
 	waituntil {!isnull (finddisplay 46)};
 	_medicalSystemMenuKeybind = findDisplay 46 displayAddEventHandler ["KeyDown", SMS_fnc_medicalMenuKeybindEH];
 };
-
-// Unit update loop
-[_unit] spawn {
-	params ["_unit"];
-	while {alive _unit} do {
-		sleep 1;
-		[_unit, serverTime] call SMS_fnc_updatePlayerState;
-	};
-};

@@ -13,7 +13,6 @@ _display = uiNamespace getVariable "SMS_ActionBar";
 (_display displayCtrl 801) ctrlSetBackgroundColor ([] call SMS_fnc_getPlayersMenuColor);
 
 _time = 0.0;
-_duration = 1 max _duration;
 _progressbar = (_display displayCtrl 702);
 
 _displayOpen = true;

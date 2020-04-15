@@ -6,8 +6,6 @@ _display = uiNamespace getVariable "SMS_MedicalMenu";
 
 _medicalMenuCloseEH = _display displayAddEventHandler ["Unload", SMS_fnc_medicalMenuCloseEH];
 
-player sideChat str _display;
-
 player setVariable ["SMS_MED_TARGET", _target, true];
 
 _name = _target getVariable "SMS_UNIT_NAME";

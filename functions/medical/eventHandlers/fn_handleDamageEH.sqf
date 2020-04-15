@@ -130,6 +130,12 @@ switch (_selection) do {
 		[_unit, _damage, _wasDirect, ["SMS_LARM_BLEED","SMS_RARM_BLEED"]] call _handleToMulti;
 	};
 	case "legs": {
+		
+		if (_damage > 0.7) then {
+			[_unit, true] call SMS_fnc_setLimping;
+		};
+
+
 		[_unit, _damage, _wasDirect, ["SMS_LLEG_BLEED","SMS_RLEG_BLEED"]] call _handleToMulti;
 	};
 };

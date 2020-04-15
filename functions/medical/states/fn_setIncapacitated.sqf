@@ -3,7 +3,8 @@ params ["_target","_enable"];
 if (_enable) then {
 	_target setVariable ["SMS_UNCONSCIOUS", true, true];
 	_target setUnconscious true;
-	[] remoteExec ["closeDialog 2", netId _target, false];
+	[2] remoteExec ["closeDialog", _target, false];
+
 	[true] call SMS_fnc_hideAllHud;
 	[_target, _enable, 1] spawn SMS_fnc_unconsciousEffect;
 	
