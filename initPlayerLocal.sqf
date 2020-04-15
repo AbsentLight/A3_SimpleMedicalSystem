@@ -30,7 +30,6 @@ _unit addEventHandler ["InventoryOpened", {
 [] spawn {
 	waituntil {!isnull (finddisplay 46)};
 	_medicalSystemMenuKeybind = findDisplay 46 displayAddEventHandler ["KeyDown", SMS_fnc_medicalMenuKeybindEH];
-	_medicalMenuCloseEH = (findDisplay 800) displayAddEventHandler ["onUnload", SMS_fnc_medicalMenuCloseEH];
 };
 
 // Unit update loop

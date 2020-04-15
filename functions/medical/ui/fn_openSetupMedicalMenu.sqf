@@ -1,10 +1,10 @@
 params ["_target"];
 
-
-
 createDialog "MedicalMenu";
 
 _display = uiNamespace getVariable "SMS_MedicalMenu";
+
+_medicalMenuCloseEH = _display displayAddEventHandler ["Unload", SMS_fnc_medicalMenuCloseEH];
 
 player sideChat str _display;
 
