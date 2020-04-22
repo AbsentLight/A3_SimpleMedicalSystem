@@ -15,11 +15,20 @@ _display = uiNamespace getVariable "SMS_ActionBar";
 _time = 0.0;
 _progressbar = (_display displayCtrl 702);
 
-_displayOpen = true;
+_actionCancelled = false;
+
+_playerInitialPos = getPos player;
 
 while {_time < _duration} do {
-	if (isNull findDisplay 700) exitWith {hint "display not found"; _displayOpen = false};
-	if ([player] call SMS_fnc_isUnconscious) exitWith {_displayOpen = false};
+	// Check if player has closed dialog (cancelled action)
+	if (isNull findDisplay 700) exitWith {hint "display not found"; _actionCancelled = true};
+
+	// Has player fallen unconscious while performing action
+	if ([player] call SMS_fnc_isUnconscious) exitWith {_actionCancelled = true};
+
+	// Has target moved away from the player (cancelling)
+	if (((getPos player) distance _playerInitialPos) > 0.5) exitWith {_actionCancelled = true};
+
 	uiSleep 0.015;
 	_fillAmount = _time / _duration;
 	_progressbar progressSetPosition _fillAmount;
@@ -27,7 +36,7 @@ while {_time < _duration} do {
 };
 
 // Only perform callback if not interrupted
-if (_displayOpen) then {
+if (!_actionCancelled) then {
 	[(player getVariable "SMS_MED_TARGET"), player, _callbackExtraParams] call _callback;
 } else {
 	hint "Action cancelled";

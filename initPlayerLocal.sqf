@@ -26,8 +26,9 @@ _unit addEventHandler ["InventoryOpened", {
 	_unit setVariable ["SMS_DAMAGE_EH", _ehRef, true];
 };
 
-// UI event handlers
+// UI event handlers & effect setup
 [] spawn {
 	waituntil {!isnull (finddisplay 46)};
+	[false, true] call SMS_fnc_bleedEffect;
 	_medicalSystemMenuKeybind = findDisplay 46 displayAddEventHandler ["KeyDown", SMS_fnc_medicalMenuKeybindEH];
 };

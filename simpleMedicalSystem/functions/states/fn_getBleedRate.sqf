@@ -12,6 +12,8 @@ _inc = {
 	_count
 };
 
+// Max rate is 6*3 => 18
+
 _count = ["SMS_HEAD_BLEED", "SMS_HEAD_TOURN", _count] call _inc;
 _count = ["SMS_BODY_BLEED", "SMS_BODY_TOURN", _count] call _inc;
 _count = ["SMS_RARM_BLEED", "SMS_RARM_TOURN", _count] call _inc;

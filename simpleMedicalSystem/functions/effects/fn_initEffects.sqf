@@ -52,3 +52,60 @@ _target setVariable [
 	] call _fnc_createEffect),
 	false
 ];
+
+
+// - Pain -----------------------------------------------------------
+
+_target setVariable [
+	"ppPainCC",
+	([
+		"ColorCorrections",
+		13502,
+		[1, 1, 0, [1, 1, 1, 0], [1, 1, 1, 1], [0.33, 0.33, 0.33, 0], [0.55, 0.5, 0, 0, 0, 0, 4]]
+    ] call _fnc_createEffect),
+	false
+];
+
+_target setVariable [
+	"ppPainBB",
+	([
+		"DynamicBlur",
+        813, // 135xx does not work
+        [0]
+    ] call _fnc_createEffect),
+	false
+];
+
+
+// UNUSED
+_target setVariable [
+	"ppPainRB",
+	([
+		"RadialBlur", // "Will not do anything if RADIAL BLUR is disabled in Video Options."
+		13502,
+		[0, 0, 0.25, 0.25]
+    ] call _fnc_createEffect),
+	false
+];
+
+// UNUSED
+_target setVariable [
+	"ppPainCA",
+	([
+		"ChromAberration",
+		13502,
+		[0, 0, false]
+    ] call _fnc_createEffect),
+	false
+];
+
+// - Blood Loss -----------------------------------------------------------
+_target setVariable [
+	"ppBloodDesat",
+	([
+		"ColorCorrections",
+		13504,
+		[1, 1, 0, [0, 0, 0, 0.4], [1, 1, 1, 0.4], [1, 1, 1, 0]]
+	] call _fnc_createEffect),
+	false
+];

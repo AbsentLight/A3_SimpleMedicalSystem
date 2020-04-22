@@ -21,7 +21,6 @@ _bandagePartControl = {
 	_display = uiNamespace getVariable "SMS_MedicalMenu";
 	_ctrl = _display displayCtrl _idc;
 	_bleed = [_target, _part] call SMS_fnc_partIsBleeding;
-	//player sideChat (format ["%1 has bleed of level %2 on part %3", name _target, _bleed, _part]);
 	if (_diagnosed && _bleed != 0) then {
 		_ctrl ctrlSetTextColor ([_bleed] call SMS_fnc_bleedAmountToColor);
 		_ctrl ctrlSetText (format ["Bandage %1", _label]);
@@ -55,6 +54,11 @@ _tourniquetPartControl = {
 	Medic is informed (has diagnosed)
 */
 _isDiagnosed = [_target, player] call SMS_fnc_hasDiagnosed;
+
+// Reset lasted diagnosed timer on target if currently diagnosed
+if (_isDiagnosed) then {
+	_target call SMS_fnc_attended;
+};
 
 
 /*

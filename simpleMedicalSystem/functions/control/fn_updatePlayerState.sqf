@@ -1,7 +1,34 @@
-params ["_target","_time"];
+params ["_target"];
+
+/*
+	Tick
+*/
+
+_tick = _target getVariable ["SMS_TICK",0];
+_tickMajor = false;
+if (_tick == 0) then {
+	_tickMajor = true;
+};
+
+// Run minor tick actions
+[_target, _tick] call SMS_fnc_updatePlayerStateMinor;
+
+// Increase Tick
+_tick = _tick + 1;
+if (_tick >= 32) then {
+	_tick = 0
+};
+_target setVariable ["SMS_TICK", _tick, false];
+
+if (!_tickMajor) exitWith {};
+
+/*
+	Vars
+*/
 
 // Pain and Blood in the Patient
 _pain = _target getVariable "SMS_PAIN";
+_painTemp = _target getVariable "SMS_PAIN_TEMP";
 _blood = _target getVariable "SMS_BLOOD";
 
 // Medication currently acting
@@ -15,12 +42,13 @@ _bloodModCap = _target getVariable "SMS_BLOOD_MOD_CAP";
 //["face_hub","neck","head","pelvis","spine1","spine2","spine3","body","arms","hands","legs","body"]
 // spine1: Abdomen, spine2: Diaphragm, spine3: Chest
 
+
+
 /*
-	Death Conditions
+	Temp pain
 */
-if (_blood <= 0) then {
-	_target setDamage 1;
-};
+_painTemp = (_painTemp - 5) max 0;
+_target setVariable ["SMS_PAIN_TEMP", _painTemp, true];
 
 /*
 	Blood Loss and Pain from injuries
@@ -102,42 +130,25 @@ _bloodModCap = _bloodModCap - (_bloodModCap min 20);
 _target setVariable ["SMS_BLOOD_MOD", _bloodMod, true];
 _target setVariable ["SMS_BLOOD_MOD_CAP", _bloodModCap, true];
 
-// Morphine & Limping
-_limpingMode = _target getVariable "SMS_LIMPING_MODE";
-switch (_limpingMode) do {
-    case 0: {};
-	case 1: {
-		if (_bloodModCap > 0) then {
-			[_target,2] call SMS_fnc_setLimping;
-		};
-	};
-	case 2: {
-		if (_bloodModCap == 0) then {
-			[_target,1] call SMS_fnc_setLimping;
-		};
-	};
-    default {};
-};
-
 
 
 /*
-	Unconscious Checks
+	Animations
 */
-_unconscious = _target getVariable "SMS_UNCONSCIOUS";
 
-// Get relative pain/blood after meds are accounted for
-_relPain = (_pain - _painMod) max 0;
-_relBlood = (_blood + _bloodMod) min 1200;
-
-
-if (!_unconscious && {_relPain > 800 || _relBlood < 600}) then {
-	[_target, true] call SMS_fnc_setIncapacitated;
+// Bleeding animation
+_bleedRate = [_target] call SMS_fnc_getBleedRate;
+if (_bleedRate > 0) then {
+	[true, false, _bleedRate] call SMS_fnc_bleedEffect;
 } else {
-	if (_unconscious && {_relPain < 700 && {_relBlood > 700}}) then {
-		[_target, false] call SMS_fnc_setIncapacitated;
-	};
+	[false, false, 0] call SMS_fnc_bleedEffect;
 };
+
+// Blood Loss animation
+if (_blood < 1200) then {
+	[true, false] call SMS_fnc_bloodLossEffect;
+};
+
 
 
 

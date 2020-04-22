@@ -6,6 +6,7 @@ params ["_newUnit", "_oldUnit", "_respawn",	"_respawnDelay"];
 _newUnit setVariable ["SMS_UNIT_NAME", name player, true];
 
 _newUnit setVariable ["SMS_PAIN", 0, true];
+_newUnit setVariable ["SMS_PAIN_TEMP", 0, true];
 _newUnit setVariable ["SMS_BLOOD", 1200, true];
 
 _newUnit setVariable ["SMS_HEAD_BLEED", 0, true];
@@ -36,11 +37,13 @@ _newUnit setVariable ["SMS_LIMPING_MODE", 0, true];
 _newUnit setVariable ["SMS_LAST_ATTENDED", 0, true];
 _newUnit setVariable ["SMS_MED_TARGET", objNull, true];
 
+_newUnit setVariable ["SMS_TICK", 0, false];
+
 // Unit update loop
 [_newUnit] spawn {
 	params ["_unit"];
 	while {alive _unit} do {
-		sleep 1;
+		sleep 0.031;
 		[_unit, serverTime] call SMS_fnc_updatePlayerState;
 	};
 };

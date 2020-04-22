@@ -122,3 +122,30 @@ class RscProgressBar {
 	shadow = 2;
 	texture = "#(argb,8,8,3)color(1,1,1,1)";
 }
+
+class RscPicture {
+	access = 0;
+	idc = -1;
+	type = CT_STATIC;
+	style = ST_PICTURE;
+	x = 0;
+	y = 0;
+	w = 0;
+	h = 0;
+	text = "";
+
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	font = "TahomaB";
+	sizeEx = 0;
+	lineSpacing = 0;
+	fixedWidth = 0;
+	shadow = 0;
+}
+
+class RscFullScreenPicture : RscPicture {
+	x = safezoneXAbs;
+	y = safezoneY;
+	w = safezoneWAbs;
+	h = safezoneH;
+}

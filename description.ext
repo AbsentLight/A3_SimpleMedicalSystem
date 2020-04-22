@@ -14,7 +14,7 @@ class CfgFunctions
 
 		class actions
 		{
-			file = "functions\medical\actions";
+			file = "simpleMedicalSystem\functions\actions";
 			class attended {};
 			class diagnose {};
 			class applyBandage {};
@@ -25,9 +25,16 @@ class CfgFunctions
 			class useAdvancedAid {};
 		};
 
+		class control
+		{
+			file = "simpleMedicalSystem\functions\control";
+			class updatePlayerState {};
+			class updatePlayerStateMinor {};
+		};
+
 		class states
 		{
-			file = "functions\medical\states";
+			file = "simpleMedicalSystem\functions\states";
 			class setLimping {};
 			class setIncapacitated {};
 			class isFresh {};
@@ -38,20 +45,21 @@ class CfgFunctions
 			class isUnconscious {};
 			class getTourniquetCount {};
 			class partHasTourniquet {};
-			class updatePlayerState {};
 		};
 
 		class effects
 		{
-			file = "functions\medical\effects";
+			file = "simpleMedicalSystem\functions\effects";
 			class initEffects {};
 			class painEffect {};
+			class bleedEffect {};
+			class bloodLossEffect {};
 			class unconsciousEffect {};
 		};
 
 		class eventHandlers
 		{
-			file = "functions\medical\eventHandlers";
+			file = "simpleMedicalSystem\functions\eventHandlers";
 			class handleDamageEH {};
 			class medicalMenuKeybindEH {};
 			class medicalMenuCloseEH {};
@@ -59,7 +67,7 @@ class CfgFunctions
 
 		class ui
 		{
-			file = "functions\medical\ui";
+			file = "simpleMedicalSystem\functions\ui";
 			class actionBar {};
 			class openSetupMedicalMenu {};
 			class setTriageCategory {};
@@ -69,7 +77,7 @@ class CfgFunctions
 
 		class util
 		{
-			file = "functions\medical\util";
+			file = "simpleMedicalSystem\functions\util";
 			class removeVanillaMedical {};
 			class isMedic {};
 			class hideAllHud {};
@@ -80,6 +88,7 @@ class CfgFunctions
 			class canHaveMorph {};
 			class canHaveBasic {};
 			class wasDamageSourceDirect {};
+			class getRelativePain {};
 			class getTourniquetActionText {};
 			class canReceiveMedicalAttention {};
 		};
