@@ -126,3 +126,9 @@ if (_target == player || _isDiagnosed) then {
 if (_isDiagnosed) then {
 	[_target, 817] call SMS_fnc_setTriageCategory;
 };
+
+/*
+	Status Messages
+*/
+_statusMsgsCtrl = _display displayCtrl 818;
+_statusMsgsCtrl ctrlSetStructuredText ([_target] call SMS_fnc_getStatusMessagesText);

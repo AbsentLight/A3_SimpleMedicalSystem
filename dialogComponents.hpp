@@ -47,6 +47,28 @@ class RscButtonBase {
 	text = "";
 };
 
+class RscStructuredText {
+	idc = -1; 
+	type = CT_STRUCTURED_TEXT;  // defined constant
+	style = ST_LEFT;            // defined constant
+	colorBackground[] = {0.19,0.19,0.19,0.4};
+	x = 0.1; 
+	y = 0.1; 
+	w = 0.3; 
+	h = 0.1; 
+	size = 0.032;
+	text = "";
+	class Attributes {
+		font = GUI_FONT_NORMAL;
+		color = "#ffffff";
+		align = "left";
+		valign = "middle";
+		shadow = false;
+		shadowColor = "#ff0000";
+		size = "1";
+	};
+};
+
 class RscBackgroundElement {
 	idc = -1;
 	type = CT_STATIC;
@@ -149,3 +171,4 @@ class RscFullScreenPicture : RscPicture {
 	w = safezoneWAbs;
 	h = safezoneH;
 }
+

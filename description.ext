@@ -73,6 +73,17 @@ class CfgFunctions
 			class setTriageCategory {};
 			class bleedAmountToColor {};
 			class getPlayersMenuColor {};
+			class getStatusMessagesText {};
+		};
+
+		class statusText
+		{
+			file = "simpleMedicalSystem\functions\ui\status";
+			class getEpiStatusText {};
+			class getPainStatusText {};
+			class getMorphStatusText {};
+			class getBleedingStatusText {};
+			class getBloodLossStatusText {};
 		};
 
 		class util

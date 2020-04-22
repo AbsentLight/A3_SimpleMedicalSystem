@@ -150,6 +150,16 @@ class MedicalMenu {
 			w = 0.425;
 			text = "UNKNOWN";
 		};
+
+		// Status Messages
+		class statusMessages : RscStructuredText {
+			idc = 818;
+			x = 0.55;
+			y = 0.21;
+			w = 0.425;
+			h = 0.41;
+			text = "Under the effect of Morphine";
+		};
 	};
 	class controlsBackground {
 		
